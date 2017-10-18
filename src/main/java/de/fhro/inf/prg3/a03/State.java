@@ -10,7 +10,7 @@ public abstract class State {
     protected static final Logger logger = LogManager.getLogger();
     protected static Animal animal;
 
-    private int t = 0;
+    protected int t = 0;
     private int duration;
 
     protected State(Animal animal, int duration) {
@@ -23,6 +23,10 @@ public abstract class State {
         t++;
 
         return (t >= duration ? successor() : this);
+    }
+
+    State feed(){
+        throw new IllegalStateException("Can't stuff a cat...");
     }
 
     abstract State successor();

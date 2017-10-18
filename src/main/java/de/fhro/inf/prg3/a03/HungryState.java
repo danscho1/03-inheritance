@@ -9,6 +9,13 @@ public class HungryState extends State {
     }
 
     @Override
+    public State feed(){
+        State.logger.info("You feed the cat...");
+        return new DigestingState(animal, animal.getDigest(), t);
+    }
+
+
+    @Override
     State successor(){
 		logger.info("I've starved for a too long time...good bye...");
         return new DeathState(animal, Integer.MAX_VALUE);

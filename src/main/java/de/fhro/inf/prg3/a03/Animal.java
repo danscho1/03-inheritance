@@ -42,11 +42,7 @@ public class Animal {
 	}
 
 	public void feed(){
-		if (!this.isHungry())
-			throw new IllegalStateException("Can't stuff a cat...");
-
-		State.logger.info("You feed the cat...");
-		currentstate = new DigestingState(this, getDigest());
+        currentstate = currentstate.feed();
 	}
 
 	public boolean devours(Animal other){
